@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/57e9b76792.js"></script>
+    <title>Handyman Service on Demand</title>
+    <style>
+    .navbar-brand{
+  margin:0;
+  padding:0;
+    }
+
+  .logo{
+  height:50px;
+  padding-right: 15px;
+  padding-left:15px;
+  }
+
+  .navbar-inverse{
+  height: 65px;
+  padding-left: -105px;
+  }
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+          <img src="data:image/png;base64,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"
+              width="80px"  class = "img-responsive logo" alt="">
+        </a>
+    </div>
+    <ul class="nav nav-pills navbar-right">
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li ><a href="#">About us</a></li>
+      <li><a href="#">Contact us </a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Mechanic</a></li>
+          <li><a href="#">Electrician</a></li>
+          <li><a href="#">Plumbing</a></li>
+          <li><a href="#">Painting</a></li>
+          <li><a href="#">Carpenter</a></li>
+          <li><a href="#">Exterior Upgrades</a></li>
+          <li><a href="#">Interior designing</a></li>
+          <li><a href="#">Flooring and tile installation</a></li>
+          <li><a href="#">Window repair</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav nav-pills navbar-right">
+      <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+    {% block content %}
+
+    {% endblock content %}
+  
+    <div class="container">
+      <div class="footer" style="background-color: #484848; color:white;">
+        <!-- Footer -->
+      <footer class="page-footer font-small indigo">
+  
+    <!-- Footer Links -->
+    <div class="container">
+  
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+        <!-- Grid column -->
+        <div class="col-md-4 mb-3">
+          <h1 style="font-family:aerial; font-size:32px;">Contact us</h1>
+          <hr>
+            <p1 style="font-family:aerial; font-size:20px"><a href="#!"><span class= "glyphicon glyphicon-envelope"></span> hsod@gmail.com &nbsp&nbsp&nbsp</a></p1> <br/>
+            <p2 style="font-family:aerial; font-size:20px"><a href="#!"><span class= "fas fa-phone-alt"></span> +071-598762 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a> <br/></p2>
+             <p3 style="font-family:aerial; font-size:20px"><a href="https://goo.gl/maps/Tae8NhLj81Gdjk7p6"><span class="fas fa-map-marker-alt" ></span> Goalpark, Butwal &nbsp&nbsp&nbsp&nbsp&nbsp</a><br/></p3>
+        </div>
+  
+        <!-- Grid column -->
+        <div class="col-md-4 mb-3">
+          <h1 style="font-family:aerial; font-size:32px;">About us</h1>
+          <hr>
+          <p> <i>Finding a reliable handyman service professional can be a challenge. We’re here to prove that it doesn’t have to be. We provide the best handymen service around the city.</i></p>
+        </div>
+  
+        <!-- Grid column -->
+        <div class="col-md-4 mb-3">
+          <h1 style="font-family:aerial; font-size:32px;">Emergency</h1>
+          <hr>
+          <p1 style="font-family:aerial; font-size:20px"><a href="#!"><span class="fas fa-mobile-alt"></span> +977-9847300001 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></p1>
+        </div>
+        <!-- Grid column -->
+  
+      <!-- Grid row-->
+      <hr class="rgba-white-light" style="margin: 0 15%;">
+  
+      <!-- Grid row-->
+<!--      <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">-->
+<!--  -->
+<!--        &lt;!&ndash; Grid column &ndash;&gt;-->
+<!--        <div class="col-md-8 col-12 mt-5">-->
+<!--          <p style="line-height: 1.7rem"><i>Best handyman servicec in one platform</i></p>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Grid column &ndash;&gt;-->
+<!--  -->
+<!--      </div>-->
+<!--      &lt;!&ndash; Grid row&ndash;&gt;-->
+<!--      <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">-->
+<!--  -->
+      <!-- Grid row-->
+      <div class="row pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-12">
+  
+          <div class="mb-5 flex-center">
+  
+            <!-- Facebook -->
+            <a class="fb-ic">
+              <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+              <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+              <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic">
+              <i class="fab fa-pinterest fa-lg white-text"> </i>
+            </a>
+  
+          </div>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row-->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="{% url 'index' %}">handyman.com</a>
+    </div>
+    <!-- Copyright -->
+    </div>
+      </footer>
+
+<!-- Footer -->
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+  </body>
+</html>1

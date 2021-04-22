@@ -1,0 +1,306 @@
+{% extends 'Handyman/base.html' %} {%block content %} {% load static %}
+<style>
+    .col-sm-8{
+    height: 510px;
+    width: 100%;
+    background : url("https://images.unsplash.com/photo-1505798577917-a65157d3320a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    object-fit: contain;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+
+}
+h2.text
+{
+   font-family: 'Open Sans', sans-serif;
+   text-align: justify;
+   justify-content:center;
+}
+
+.flex-wrap
+{
+ {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+}
+
+</style>
+<div class = "col-sm-8" style="margin-top:-20.5px; margin-bottom: 60px;">
+    <h2 class="text"><b>Handyman Services You Can Trust On!</b></h2>
+</div>
+
+<!--<div>-->
+<!--    <h2 class="text-center mt-lg-2">Search Home Services</h2>-->
+<!--</div>-->
+<!--<hr>-->
+<div class = "col-sm-4" style="margin-top:-20.5px; margin-bottom: x; background-color: #F0F8FF;">
+    <div class="flex-wrap col-space-2">
+
+      <div class="wow slideInUp flex-item item" style="visibility: visible; animation-name: slideInUp;">
+        <div class="item-col image">
+          <img src="https://www.homee.com/hubfs/icons/icon-checkmark_orange.svg" height="15px" width="15px" alt="">
+        </div>
+        <div class="item-col item-content">
+          <h3 class="item-title">  On-Demand Handyman Services. </h3>
+          <div class="snippet"><p>Once a job request has been accepted, a Homee is usually at the job site in as little as 30 minutes.</p></div>
+        </div>
+      </div>
+
+      <div class="wow slideInUp flex-item item" style="visibility: visible; animation-name: slideInUp;">
+        <div class="item-col image">
+          <img src="https://www.homee.com/hubfs/icons/icon-checkmark_orange.svg" height="15px" width="15px" alt="">
+        </div>
+        <div class="item-col item-content">
+          <h3 class="item-title">  Vetted and Background-Checked Handymen. </h3>
+          <div class="snippet"><p>Every Homee is vetted and background-checked prior to joining the network—meaning you get professional services you can trust.</p></div>
+        </div>
+      </div>
+
+      <div class="wow slideInUp flex-item item" style="visibility: visible; animation-name: slideInUp;">
+        <div class="item-col image">
+          <img src="https://www.homee.com/hubfs/icons/icon-checkmark_orange.svg" height="15px" width="15px" alt="">
+        </div>
+        <div class="item-col item-content">
+          <h3 class="item-title">  Competitive Pricing for Handyman Services. </h3>
+          <div class="snippet"><p>HSOD negotiates favorable rates for handyman services and labor is billed down to the minute instead of rounded up to the hour.</p></div>
+        </div>
+      </div>
+<br>
+        <br>
+    </div>
+</div>
+
+
+<div class="col-sm-12" style="margin-top:20px; margin-bottom: 10px; background-color: #F5FFFA">
+<!--    #F0F8FF;-->
+    <h1 >Search for the services</h1>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="{% url 'index' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="">City</label>
+                    <select class="form-control" name="city">
+                    {% for city in cities %}
+                <option value="{{ city.id }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Profession</label>
+                    <select class="form-control" name="profession">
+					{% for profession in professions %}
+					<option value="{{ profession.id }}">
+						{{ profession }}
+					</option>
+					{% endfor %}
+				</select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class=" form-control btn btn-success" style="background-color: #708090;">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if handymans %}
+    <h2 class="mt-lg-2">Seach results for city <i>{{handyman.user.city}}</i> and profession <i>{{ handyman.user.profession }}</i> </h2>
+    <div class="table-responsive mt-lg-2">
+        <table id="providers" class="table">
+            <thead style="background-color: red; color: white;">
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Profession</th>
+                    <th>Hourly Rate</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for handyman in handymans %}
+                <tr>
+                    <td> <img src="{{ handyman.user.image.url }}" style="height: 90px; width:150px;"></td>
+                    <td><b>{{ handyman.user.name}}</b></td>
+                    <td><b>{{ handyman.user.city }}</b></td>
+                    <td><b>{{ handyman.profession }}</b></td>
+                    <td><b>{{ handyman.rate }}</b></td>
+                    <td><a href="{% url 'profile' handyman.id %}"><button class="btn btn-outline-primary">Details</button></a></td>
+                </tr>
+                <hr> {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    {% if no_result %}
+    <h1 class="text-center"> No matchings results found. Please try other options. </h1>
+    {% endif %}
+</div>
+
+<!-- Page Heading -->
+{% if allHandymans %}
+<div class="container" style="background-color:#F5FFFA; ">
+        <div class="row text-center" style="background-color: #778899; color: black; text-transform: uppercase;">
+            <div class="col-md-12">
+                <h1>Professionals List</h1>
+            </div>
+        </div>
+        <div class="row mt-lg-3 mb-lg-3">
+            {% for handyman in allHandymans %}
+            <div class="card ml-lg-3" style="width: 18rem;">
+                <img src={{handyman.user.image.url}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ handyman.user.name }}</b></h5>
+                    <p class="card-text">
+                        {% if not handyman.description %}
+                        <i>No description available.</i> {% endif %} {{ handyman.description }}
+                    </p>
+                    <b>Prefession: {{ handyman.profession.name }}</b><br>
+                    <b>City: {{ handyman.user.city.name }}</b><br>
+                    <b>Rate : ${{ handyman.rate }} per hour</b>
+                    <a href="{% url 'profile' handyman.id %}" class="btn btn-outline-info">Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+
+{% endif %}
+<!-- Page Heading / End -->
+
+<!-- Page Content -->
+<section class="page-content">
+    <div class="container" style="background-color:#F5FFFA" >
+
+        <div class="row text-center" style="background-color: #778899; color: white; text-transform: uppercase;">
+            <div class="col-md-12">
+                <h1>Our services</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <div class="icon">
+                        <i class="fa fa-bug"></i>
+                    </div>
+                    <div class="icon-box-body">
+                        <h5 style="font-family:verdana; font-size:20px"><span style="color:#DC143C"><b>Plumbing</b></span></h5>
+                        <p style="font-family:arial;">We have the qualified and most experienced list of plumbers around the city.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <div class="icon">
+                        <i class="fa fa-cog"></i>
+                    </div>
+                    <div class="icon-box-body">
+                       <h5 style="font-family:verdana; font-size:20px"><span style="color:#DC143C"><b>Small Repairs</b></span></h5>
+                        <p style="font-family:arial;">All kinds of repair works like repairing small electrical equipments like tv, remote, grinders fan etc falls unders this catogery </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="icon-box">
+                    <div class="icon">
+                        <i class="fa fa-recycle"></i>
+                    </div>
+                    <div class="icon-box-body">
+                        <h5 style="font-family:verdana; font-size:20px"><span style="color:#DC143C"><b>Heavy Repairs</b></span></h5>
+                        <p style="font-family:arial;">Repairing big electricial equipments like AC, Refrigators , Washing machines , generators ,microovens etc falls under this ctegory .</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="icon-box">
+                <div class="icon">
+                    <i class="fa fa-suitcase"></i>
+                </div>
+                <div class="icon-box-body">
+                    <h5 style="font-family:verdana; font-size:20px"><span style="color:#DC143C"><b>Tile Fixtures</b></span></h5>
+                    <p style="font-family:arial;">We are professional tile installers who can install and repair tile in many areas of your home.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="icon-box">
+                <div class="icon">
+                    <i class="fa fa-lightbulb-o"></i>
+                </div>
+                <div class="icon-box-body">
+                    <h5 style="font-family:verdana; font-size:20px"><span style="color:#DC143C"><b>Home Decor</b></span></h5>
+                    <p style="font-family:arial;">Professional decor dedicate their careers exclusively to the art and science of decoring .</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="icon-box">
+                <div class="icon">
+                    <i class="fa fa-cube"></i>
+                </div>
+                <div class="icon-box-body">
+                    <h5 style="font-family:verdana; font-size:20px"><span style="color:#DC143C"><b>Carpenters</b></span></h5>
+                    <p style="font-family:arial;"> They builds or repairs wooden structures or their structural parts. They use natural materials (wood/timber) to install wooden fixtures and fittings</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+    <!-- Services / End -->
+
+    <!-- Testimonials -->
+        <div class="container" style="background-color:#F5FFFA;">
+    <div class="row text-center" style="background-color: #778899; color: black; text-transform: uppercase;">
+            <div class="col-md-12" >
+                <h1>Testimonials</h1>
+            </div>
+        </div>
+    <div class="row">
+        <div class="media mt-lg-2">
+         <img src="{% static 'Handyman/images/1.png' %}" class="img-circle" alt="Cinque Terre" width="150" height="150">
+
+          <div class="media-body">
+              <h5 class="mt-0"><b>Tim Johnson</b></h5>
+              <p><i>“Richard did a very professional job installing lights in my house!”</i></p>
+          </div>
+        </div>
+        <hr>
+         <div class="media mt-lg-2">
+          <img src="{% static 'Handyman/images/3.png' %}" class="img-circle" alt="Cinque Terre" width="150" height="150">
+          <div class="media-body">
+              <h5 class="mt-0"><b>Uday Singh</b></h5>
+            <p><i>“Excellent service and quality job – Have had work done in the past- all excellent, Thanks Bin.”</i></p>
+          </div>
+        </div>
+        <hr>
+         <div class="media mt-lg-2">
+          <img src="{% static 'Handyman/images/2.png' %}" class="img-circle" alt="Cinque Terre" width="150" height="150">
+          <div class="media-body">
+              <h5 class="mt-0"><b>Priya Sigdel</b></h5>
+            <p><i>“Richard did everything to my satisfaction. I wouldn’t hesitate to use the happy HSOD web app in the future.”</i></p>
+          </div>
+        </div>
+        <hr>
+    </div>
+    <!-- Testimonials / End -->
+    </div>
+
+
+
+    </div>
+
+</section>
+
+</div>
+<!-- Main / End -->
+</div>
+
+{% endblock content %}
