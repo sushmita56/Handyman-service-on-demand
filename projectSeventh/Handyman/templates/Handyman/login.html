@@ -2,35 +2,35 @@
 
 <div class="container-fluid ml-lg-2">
     <div class="row">
-        <div class="col-sm-4" style="background-color: white; color: black;">
-            <h3 class="text-center mt-2">
-                <b>
-                Login to your account
-                </b>
-            </h3>
-            <hr>
-            <form action="{% url 'login' %}" method="POST">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label><b>Email</b></label>
-                    <input type="email" name="email" value="{{ values.email }}" class="form-control">
-                    <small><b>We donot share your email with anyone.</b></small>
-                </div>
-                <div class="form-group">
-                    <label><b>Password</b></label>
-                    <input type="password" name="password" class="form-control">
-                </div>
-                {% if error_message %} <b class="ml-lg-5">{{error_message}}</b> {% endif %}
-                <input type="submit" class="btn btn-success btn-block mt-lg-5" value="LogIn">
-            </form>
-            <br>
-            <i>Don't have an account ?  Click here to register...<a href="{% url 'register' %}" style="color: black;"><b>Register</b></a></i>
-        </div>
-        <div class="col-sm-8">
-            <img src=" https://images.unsplash.com/photo-1581783898377-1c85bf937427?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80"
-                 height="500px" width="500px">
-
-        </div>
+        <!-- <div class = "h-75 d-inline-block bg-info"> -->
+            <div class = "w-50 p-3" style="background-color: white; color: black;">
+                <h3 class="text-center mt-2">
+                    <b>
+                    Login to your account
+                    </b>
+                </h3>
+                <hr>
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label><b>Email</b></label>
+                        <input type="email" name="email" value="{{ values.email }}" class="form-control">
+                        <small><b>We donot share your email with anyone.</b></small>
+                    </div>
+                    <div class="form-group">
+                        <label><b>Password</b></label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    {% if error_message %} <b class="ml-lg-5">{{error_message}}</b> {% endif %}
+                    <input type="submit" class="btn btn-success btn-block mt-lg-5" value="LogIn">
+                </form>
+                <br>
+                <i>Don't have an account ?  Click here to register...<a href="{% url 'register' %}" style="color: black;"><b>Register</b></a></i>
+            </div>
+            <div class = "w-50 p-3">
+                <img src=" https://images.unsplash.com/photo-1581783898377-1c85bf937427?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80" height="500px" width="600px" class="img-circle">
+            </div>
+        <!-- </div> -->
     </div>
 </div>
 

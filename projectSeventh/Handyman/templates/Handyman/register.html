@@ -1,16 +1,16 @@
 {% extends 'Handyman/base.html' %} {% block content %}
 
 <div class="container">
-    <h1 class="text-center">Register as Service Provider</h1>
+    <h1 class="text-center">Register as a Service Provider</h1>
     {% if error_message %}<div class="alert alert-danger" role="alert">
  {{ error_message }}
 </div>  {% endif %}
     {% if rate_error %}<div class="alert alert-danger" role="alert"> {{ rate_error }}</div> {% endif %}
     <hr>
+    <h1><center><font color=#5F9EA0><b>Personal Details</b></font></center></h1>
     <div class="row">
         <div class="col border pt-4">
-            <h2>Login Details</h2>
-            <hr>
+            
             <form action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
@@ -30,23 +30,21 @@
                     <label>Password</label>
                     <input type="password" name="password" class="form-control form-control-sm">
                 </div>
-                <input type="submit" class="btn btn-primary mb-2" value="Signup">
-                <br>
-                {% comment %} Aready a member? Click here to <a href="{% url 'Login' %}">Login</a> {% endcomment %}
-        </div>
-        <div class="col border pt-4">
-            <h2>Personal Details</h2>
-            <hr>
             <div class="form-group">
                 <label>Profession</label>
                 <select class="form-control" name="profession">
-					{% for profession in professions %}
-					<option value="{{ profession.id }}">
-						{{ profession }}
-					</option>
-					{% endfor %}
-				</select>
+                    {% for profession in professions %}
+                    <option value="{{ profession.id }}">
+                        {{ profession }}
+                    </option>
+                    {% endfor %}
+                </select>
             </div>
+
+
+        </div>
+        <div class="col border pt-4">
+           
             <div class="form-group">
                 <label>Hourly Rate</label>
                 <input type="number" name="rate" class="form-control form-control-sm" aria-describedby="emailHelp">
@@ -54,12 +52,12 @@
             <div class="form-group">
                 <label>City</label>
                 <select class="form-control" name="city">
-					{% for city in cities %}
-					<option value="{{ city.id }}">
-						{{ city }}
-					</option>
-					{% endfor %}
-				</select>
+                    {% for city in cities %}
+                    <option value="{{ city.id }}">
+                        {{ city }}
+                    </option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="form-group">
                 <label>Permanent Address</label>
@@ -73,6 +71,10 @@
                 <label>Profile Image</label>
                 <input type="file" name="image" class="form-control form-control-sm">
             </div>
+
+            <input type="submit" class="btn btn-primary mb-2" value="Signup">
+                <br>
+                {% comment %} Aready a member? Click here to <a href="{% url 'Login' %}">Login</a> {% endcomment %}
             </form>
         </div>
     </div>
