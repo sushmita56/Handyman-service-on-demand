@@ -1,5 +1,4 @@
 # Handyman-service-on-demand
-(Python, Django Framework)
 
 This project is a simple handyman hiring web-based platform which aid people for finding all kinds of handyman services in a single platform.
 
